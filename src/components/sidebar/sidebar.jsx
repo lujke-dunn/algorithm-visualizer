@@ -2,12 +2,10 @@ import { ArrowUpNarrowWide, Search, Workflow, Network, X, Sun, Menu, ChevronLeft
 import SidebarCard from './sidebarCard';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
-
-
-export default function Sidebar() { 
+export default function Sidebar({ onAlgorithmSelect }) {
     const [isOpen, setIsOpen] = useState(true);
-
 
     const handleClose = () => {
         setIsOpen(false);
@@ -17,7 +15,10 @@ export default function Sidebar() {
         setIsOpen(true);
     }
 
-
+    const algorithms = {
+        sorting: ['Bubble Sort', 'Merge Sort', 'Quick Sort'],
+       
+    };
 
     return (
         <>
@@ -50,12 +51,19 @@ export default function Sidebar() {
                         <X className='w-6 h-6 text-gray-600 hover:text-gray-900 cursor-pointer' onClick={handleClose} />
                     </div>
                     <div className='border-b border-gray-100 my-4'></div>
+                    
                     <div className="space-y-4">
                         <SidebarCard title="Sorting Algorithms" icon={<ArrowUpNarrowWide />} />
                         <ul className='ml-8 space-y-2'>
-                            <li className="text-gray-600 hover:text-gray-900 cursor-pointer">Bubble Sort</li>
-                            <li className="text-gray-600 hover:text-gray-900 cursor-pointer">Merge Sort</li>
-                            <li className="text-gray-600 hover:text-gray-900 cursor-pointer">Quick Sort</li>
+                            {algorithms.sorting.map((algo) => (
+                                <li 
+                                    key={algo}
+                                    onClick={() => onAlgorithmSelect(algo)}
+                                    className="text-gray-600 hover:text-gray-900 cursor-pointer transition-colors"
+                                >
+                                    {algo}
+                                </li>
+                            ))}
                         </ul>
                         <SidebarCard title="Searching Algorithms" icon={<Search />} />
                         <SidebarCard title="Graph Algorithms" icon={<Workflow />} />
@@ -71,3 +79,7 @@ export default function Sidebar() {
         </>
     );
 }
+
+Sidebar.propTypes = {
+    onAlgorithmSelect: PropTypes.func.isRequired,
+};
