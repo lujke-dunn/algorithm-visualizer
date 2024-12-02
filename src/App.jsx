@@ -9,10 +9,15 @@ function App() {
 
 
    const [selectedAlgorithm, setSelectedAlgorithm] = useState(null);
+   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleAlgorithmSelect = (algorithm) => {
     console.log('Algorithm selected:', algorithm);
     setSelectedAlgorithm(algorithm);
+  };
+
+  const handleSidebarStateChange = (isOpen) => {
+    setIsSidebarOpen(isOpen);
   };
 
   useEffect(() => {
@@ -25,7 +30,7 @@ function App() {
       case "Bubble Sort":
         return (
           <div className="w-full">
-            <p className="text-gray-600">Loading Bubble Sort...</p>
+            
             <BubbleSort />
           </div>
         );
@@ -54,8 +59,8 @@ function App() {
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar onAlgorithmSelect={handleAlgorithmSelect} />
-      <main className="flex-1 p-8 ml-[300px]">
+      <Sidebar onAlgorithmSelect={handleAlgorithmSelect} onStateChange={handleSidebarStateChange} />
+      <main className={`flex-1 p-8 transition-all duration-700 ${isSidebarOpen ? 'ml-[300px]' : 'ml-0'}`}>
         {algorithmChooser()}
       </main>
     </div>

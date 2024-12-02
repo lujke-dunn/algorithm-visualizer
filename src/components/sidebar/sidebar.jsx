@@ -4,15 +4,17 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-export default function Sidebar({ onAlgorithmSelect }) {
+export default function Sidebar({ onAlgorithmSelect, onStateChange }) {
     const [isOpen, setIsOpen] = useState(true);
 
     const handleClose = () => {
         setIsOpen(false);
+        onStateChange(false);
     }
 
     const handleOpen = () => {
         setIsOpen(true);
+        onStateChange(true); 
     }
 
     const algorithms = {
@@ -25,9 +27,9 @@ export default function Sidebar({ onAlgorithmSelect }) {
             {!isOpen && (
                 <button 
                     onClick={handleOpen}
-                    className="fixed left-4 top-4 p-2 hover:bg-gray-100 rounded-lg"
+                    className="fixed left-4 mt-1.5 top-6 p-2 bg-gray-100 rounded-lg"
                 >
-                    <Menu className="w-6 h-6 text-gray-600 hover:text-gray-900" />
+                    <Menu className="w-6 h-6 text-gray-900" />
                 </button>
             )}
 
