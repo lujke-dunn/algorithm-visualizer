@@ -1,27 +1,62 @@
 import Sidebar from './components/sidebar/sidebar';
-import { useState } from 'react';
+import BubbleSort from "./components/visualisation/BubbleSort"
+
+import { useState, useEffect } from 'react';
+
+
 
 function App() {
-  const [selectedAlgorithm, setSelectedAlgorithm] = useState(null);
+
+
+   const [selectedAlgorithm, setSelectedAlgorithm] = useState(null);
 
   const handleAlgorithmSelect = (algorithm) => {
+    console.log('Algorithm selected:', algorithm);
     setSelectedAlgorithm(algorithm);
   };
+
+  useEffect(() => {
+    console.log('selectedAlgorithm updated:', selectedAlgorithm);
+  }, [selectedAlgorithm]);
+
+  const algorithmChooser = () => {
+    console.log('Current algorithm:', selectedAlgorithm);
+    switch (selectedAlgorithm) {
+      case "Bubble Sort":
+        return (
+          <div className="w-full">
+            <p className="text-gray-600">Loading Bubble Sort...</p>
+            <BubbleSort />
+          </div>
+        );
+      case "Merge Sort":
+        return (
+          <div className="w-full">
+            <h2 className="text-2xl font-bold text-gray-900">Merge Sort</h2>
+            <p className="text-gray-600">Merge Sort coming soon</p>
+          </div>
+        );
+      case "Quick Sort":
+        return (
+          <div className="w-full">
+            <h2 className="text-2xl font-bold text-gray-900">Quick Sort</h2>
+            <p className="text-gray-600">Quick Sort coming soon</p>
+          </div>
+        );
+      default:
+        return (
+          <div className="w-full text-center mt-20">
+            <h2 className="text-xl text-gray-600">Select an algorithm from the sidebar</h2>
+          </div>
+        );
+    }
+  }
 
   return (
     <div className="flex min-h-screen">
       <Sidebar onAlgorithmSelect={handleAlgorithmSelect} />
       <main className="flex-1 p-8 ml-[300px]">
-        {selectedAlgorithm ? (
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">{selectedAlgorithm}</h1>
-            <p className="text-gray-900">Visualization for {selectedAlgorithm} will be implemented here.</p>
-          </div>
-        ) : (
-          <div className="text-center text-gray-900  mt-20">
-            <h2 className="text-xl">Select an algorithm from the sidebar to begin</h2>
-          </div>
-        )}
+        {algorithmChooser()}
       </main>
     </div>
   );
