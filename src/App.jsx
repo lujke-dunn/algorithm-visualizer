@@ -1,5 +1,5 @@
 import Sidebar from './components/sidebar/sidebar';
-import BubbleSort from "./components/visualisation/BubbleSort"
+import BubbleSortVisualisation from "./components/visualisation/BubbleSortVisualisation"
 
 import { useState, useEffect } from 'react';
 
@@ -30,8 +30,7 @@ function App() {
       case "Bubble Sort":
         return (
           <div className="w-full">
-            
-            <BubbleSort />
+            <BubbleSortVisualisation />
           </div>
         );
       case "Merge Sort":
