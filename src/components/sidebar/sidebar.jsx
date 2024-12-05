@@ -17,10 +17,15 @@ export default function Sidebar({ onAlgorithmSelect, onStateChange }) {
         onStateChange(true); 
     }
 
+   
+        
     const algorithms = {
-        sorting: ['Bubble Sort', 'Merge Sort', 'Quick Sort'],
-       
+        logarithmicSorts: ['Merge Sort', 'Quick Sort', 'Heap Sort'],
+        quadraticSorts: ['Bubble Sort', 'Selection Sort', 'Insertion Sort'],
+        esotericSorts: ['Bogo Sort']
     };
+       
+ 
 
     return (
         <>
@@ -55,9 +60,9 @@ export default function Sidebar({ onAlgorithmSelect, onStateChange }) {
                     <div className='border-b border-gray-100 my-4'></div>
                     
                     <div className="space-y-4">
-                        <SidebarCard title="Sorting Algorithms" icon={<ArrowUpNarrowWide />} />
+                        <SidebarCard title="Logarithmic Sorts" icon={<ArrowUpNarrowWide />} />
                         <ul className='ml-8 space-y-2'>
-                            {algorithms.sorting.map((algo) => (
+                            {algorithms.logarithmicSorts.map((algo) => (
                                 <li 
                                     key={algo}
                                     onClick={() => onAlgorithmSelect(algo)}
@@ -67,10 +72,31 @@ export default function Sidebar({ onAlgorithmSelect, onStateChange }) {
                                 </li>
                             ))}
                         </ul>
-                        <SidebarCard title="Searching Algorithms" icon={<Search />} />
-                        <SidebarCard title="Graph Algorithms" icon={<Workflow />} />
-                        <SidebarCard title="Tree Algorithms" icon={<Network />} />
-                        <SidebarCard title="Pathfinding Algorithms" icon={<Workflow />} />
+                        <SidebarCard title="Quadratic Sorts" icon={<Search />} />
+                        <ul className='ml-8 space-y-2'>
+                            {algorithms.quadraticSorts.map((algo) => (
+                                <li
+                                    key={algo}
+                                    onClick={() => onAlgorithmSelect(algo)}
+                                    className='text-gray-600 hover:text-gray-900 cursor-pointer transition-colors'
+                                > 
+                                {algo}
+                                </li>
+                            ))}
+                        </ul>
+                        <SidebarCard title="Esoteric Sorts" icon={<Workflow />} />
+                        <ul className='ml-8 space-y-2'>
+                            {algorithms.esotericSorts.map((algo) => (
+                                <li
+                                    key={algo}
+                                    onClick={() => onAlgorithmSelect(algo)}
+                                    className='text-gray-600 hover:text-gray-900 cursor-pointer transition-colors'
+                                >
+                                     {algo}
+                                </li>
+                            ))}
+                        </ul>
+                        
                     </div>
                     
                     <div className="absolute bottom-4 left-4 right-4"> 
