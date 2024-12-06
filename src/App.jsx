@@ -1,4 +1,17 @@
-import Sidebar from './components/sidebar/sidebar';
+import BubbleSortVisualisation from "./components/visualisation/BubbleSortVisualisation"
+
+function App() {
+  return (
+    <div className="w-screen h-screen">
+      <BubbleSortVisualisation />
+    </div>
+  );
+}
+
+export default App;
+
+
+/* import Sidebar from './components/sidebar/sidebar';
 import BubbleSortVisualisation from "./components/visualisation/BubbleSortVisualisation"
 
 import { useState, useEffect } from 'react';
@@ -29,7 +42,7 @@ function App() {
     switch (selectedAlgorithm) {
       case "Bubble Sort":
         return (
-          <div className="w-full">
+          <div className="w-screen h-screen flex items-center justify-center">
             <BubbleSortVisualisation />
           </div>
         );
@@ -66,4 +79,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; */

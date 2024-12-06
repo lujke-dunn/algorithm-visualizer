@@ -26,7 +26,7 @@ const bubbleSortAlgorithm = async (array, { setArray, setComparing, setSwapping,
 export default function BubbleSortVisualisation() {
     return (
         <SortingVisualizer
-            title="Bubble Sort"
+            title="bubble sort"
             sortingFunction={bubbleSortAlgorithm}
         />
     );
