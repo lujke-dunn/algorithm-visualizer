@@ -1,12 +1,30 @@
+import { useState, useEffect } from 'react';
 import { Bar } from './Bar';
 
 export const ArrayBars = ({ array, comparing, swapping }) => {
+  
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const maxValue = Math.max(...array);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth ); 
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
   return (
-    <div className="flex justify-center items-end h-80 mt-16">
+    <div className="flex justify-center items-end h-80 w-full">
       {array.map((height, index) => (
         <Bar 
           key={index} 
-          height={height} 
+          height={(height / maxValue) * 320}
+          totalBars={array.length}
+          screenWidth={screenWidth}
           isComparing={comparing.includes(index)}
           isSwapping={swapping.includes(index)}
         />
