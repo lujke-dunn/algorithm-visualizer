@@ -5,12 +5,14 @@ import { ArrayBars } from './bars/ArrayBars';
 export const SortingVisualizer = ({ 
   title, 
   sortingFunction,
-  description 
+  sortingSpeed,
+  setSpeed
 }) => {
     const [array, setArray] = useState([]);
     const [comparing, setComparing] = useState([]);
     const [swapping, setSwapping] = useState([]);
     const [isSorting, setIsSorting] = useState(false);
+   
 
     const generateArray = () => {
         const newArray = Array.from({ length: 20 }, () => 
@@ -31,7 +33,7 @@ export const SortingVisualizer = ({
             setArray,
             setComparing,
             setSwapping,
-            speed: 1
+            speed: sortingSpeed
         });
         setIsSorting(false);
         setComparing([]);
@@ -62,6 +64,14 @@ export const SortingVisualizer = ({
                     >
                         Sort
                     </motion.button>
+                    <input 
+                        type="range" 
+                        min="1" 
+                        max="100" 
+                        value={sortingSpeed} 
+                        onChange={(e) => setSpeed(parseInt(e.target.value))}
+                    />
+                    <p className="text-gray-900">{sortingSpeed}x</p>
                 </div>
             </div>
         </div>

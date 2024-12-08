@@ -18,17 +18,27 @@ export const ArrayBars = ({ array, comparing, swapping }) => {
   }, []);
   
   return (
-    <div className="flex justify-center items-end h-80 w-full">
-      {array.map((height, index) => (
-        <Bar 
-          key={index} 
-          height={(height / maxValue) * 320}
-          totalBars={array.length}
-          screenWidth={screenWidth}
-          isComparing={comparing.includes(index)}
-          isSwapping={swapping.includes(index)}
-        />
+    <>
+      <div className="flex justify-center items-end h-80 w-full">
+        {array.map((height, index) => (
+          <Bar 
+            key={index} 
+            height={(height / maxValue) * 320}
+            totalBars={array.length}
+            screenWidth={screenWidth}
+            isComparing={comparing.includes(index)}
+            isSwapping={swapping.includes(index)}
+        />       
       ))}
-    </div>
+      </div>
+      <div className="flex justify-center items-end w-full text-gray-600">
+        [
+        {array.map((height, index) => (
+          <h2 className='pt-5' >{height}{index < array.length - 1 ? ", " : ''}</h2>
+        )
+      )}
+        ]
+      </div>
+    </>
   );
 };
