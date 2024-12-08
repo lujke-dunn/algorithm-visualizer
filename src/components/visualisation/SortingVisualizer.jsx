@@ -15,7 +15,7 @@ export const SortingVisualizer = ({
    
 
     const generateArray = () => {
-        const newArray = Array.from({ length: 20 }, () => 
+        const newArray = Array.from({ length: 40 }, () => 
             Math.floor(Math.random() * 50) + 1
         );
         setArray(newArray);

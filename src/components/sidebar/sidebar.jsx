@@ -32,7 +32,7 @@ export default function Sidebar({ onAlgorithmSelect, onStateChange }) {
             {!isOpen && (
                 <button 
                     onClick={handleOpen}
-                    className="fixed left-4 mt-1.5 top-6 p-2 bg-gray-100 rounded-lg"
+                    className="fixed mt-1.5 top-6 p-2 bg-gray-100 rounded-lg"
                 >
                     <Menu className="w-6 h-6 text-gray-900" />
                 </button>
