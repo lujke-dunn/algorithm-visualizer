@@ -31,10 +31,10 @@ export const ArrayBars = ({ array, comparing, swapping }) => {
         />       
       ))}
       </div>
-      <div className="flex justify-center items-end w-full text-gray-600">
+      <div className="flex justify-center items-end w-full text-gray-600 ">
         [
         {array.map((height, index) => (
-          <h2 className='pt-5' >{height}{index < array.length - 1 ? ", " : ''}</h2>
+          <h2 className='pt-5 ' >{height}{index < array.length - 1 ? ", " : ''}</h2>
         )
       )}
         ]

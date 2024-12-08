@@ -1,3 +1,4 @@
+/*
 import BubbleSortVisualisation from "./components/visualisation/BubbleSortVisualisation"
 
 function App() {
@@ -9,9 +10,9 @@ function App() {
 }
 
 export default App;
+*/
 
-
-/* import Sidebar from './components/sidebar/sidebar';
+import Sidebar from './components/sidebar/sidebar';
 import BubbleSortVisualisation from "./components/visualisation/BubbleSortVisualisation"
 
 import { useState, useEffect } from 'react';
@@ -21,8 +22,8 @@ import { useState, useEffect } from 'react';
 function App() {
 
 
-   const [selectedAlgorithm, setSelectedAlgorithm] = useState(null);
-   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleAlgorithmSelect = (algorithm) => {
     console.log('Algorithm selected:', algorithm);
@@ -42,7 +43,7 @@ function App() {
     switch (selectedAlgorithm) {
       case "Bubble Sort":
         return (
-          <div className="w-screen h-screen flex items-center justify-center">
+          <div className="w-screen h-screen">
             <BubbleSortVisualisation />
           </div>
         );
@@ -72,11 +73,13 @@ function App() {
   return (
     <div className="flex min-h-screen">
       <Sidebar onAlgorithmSelect={handleAlgorithmSelect} onStateChange={handleSidebarStateChange} />
-      <main className={`flex-1 p-8 transition-all duration-700 ${isSidebarOpen ? 'ml-[300px]' : 'ml-0'}`}>
-        {algorithmChooser()}
-      </main>
+      <div className='flex 1'>
+        <main className={`transition-all duration-700`}>
+          {algorithmChooser()}
+        </main>
+      </div>
     </div>
   );
 }
 
-export default App; */
+export default App; 

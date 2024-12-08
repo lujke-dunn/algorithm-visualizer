@@ -5,8 +5,7 @@ const bubbleSortAlgorithm = async (array, { setArray, setComparing, setSwapping,
     const arr = [...array];
     const n = arr.length;
 
-    const baseSpeed = 1000;
-    console.log("reached")
+    const baseSpeed = 1;
     for (let i = 0; i < n - 1; i++) {
         for (let j = 0; j < n - i - 1; j++) {
             setComparing([j, j + 1]);
@@ -31,7 +30,7 @@ export default function BubbleSortVisualisation() {
 
     return (
         <SortingVisualizer
-            title="bubble sort"
+            title=""
             sortingFunction={bubbleSortAlgorithm}
             sortingSpeed={speed}
             setSpeed={setSpeed}

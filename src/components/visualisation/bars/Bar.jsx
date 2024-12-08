@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const Bar = ({ height, totalBars, isComparing, isSwapping }) => {
   // Calculate width percentage based on total bars
-  const widthPercentage = `${100 / totalBars}%`;
+  const widthPercentage = `${80 / totalBars}%`;
   
   return (
     <div className="flex flex-col items-center" style={{ width: widthPercentage }}>
