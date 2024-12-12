@@ -12,6 +12,7 @@ function App() {
 export default App;
 */
 
+import Header from './components/sidebar/header';
 import Sidebar from './components/sidebar/sidebar';
 import BubbleSortVisualisation from "./components/visualisation/BubbleSortVisualisation"
 
@@ -72,7 +73,7 @@ function App() {
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar onAlgorithmSelect={handleAlgorithmSelect} onStateChange={handleSidebarStateChange} />
+      <Header onAlgorithmSelect={handleAlgorithmSelect} onStateChange={handleSidebarStateChange} />
       <div className='flex 1'>
         <main className={`transition-all duration-700`}>
           {algorithmChooser()}
