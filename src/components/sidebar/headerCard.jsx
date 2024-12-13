@@ -1,14 +1,36 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function HeaderCard({ title, icon, isOpen, algorithms, onAlgorithmSelect }) {
     const [isHovered, setIsHovered] = useState(false);
+    const timeoutRef = useRef(null);
 
+    const handleMouseEnter = () => {
+      setIsHovered(true)
+
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      timeoutRef.current = setTimeout(() => {
+        setIsHovered(false)
+      }, 500); 
+    };
+
+    useEffect(() => {
+      return () => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current)
+        }
+      }
+    })
 
     return (
     <div
       className="relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded-lg cursor-pointer">
         <span className="text-blue-400">{icon}</span>
