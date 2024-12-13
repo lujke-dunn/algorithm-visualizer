@@ -13,7 +13,6 @@ export default App;
 */
 
 import Header from './components/sidebar/header';
-import Sidebar from './components/sidebar/sidebar';
 import BubbleSortVisualisation from "./components/visualisation/BubbleSortVisualisation"
 
 import { useState, useEffect } from 'react';
