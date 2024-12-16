@@ -14,6 +14,7 @@ export default App;
 
 import Header from './components/sidebar/header';
 import BubbleSortVisualisation from "./components/visualisation/BubbleSortVisualisation"
+import BubbleSortInformation from "./components/information/bubbleSortInformation";
 
 import { useState, useEffect } from 'react';
 
@@ -45,6 +46,7 @@ function App() {
         return (
           <div className="w-screen h-screen">
             <BubbleSortVisualisation />
+            <BubbleSortInformation />
           </div>
         );
       case "Merge Sort":
