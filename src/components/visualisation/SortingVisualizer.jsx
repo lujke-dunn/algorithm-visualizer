@@ -12,6 +12,7 @@ export const SortingVisualizer = ({
     const [comparing, setComparing] = useState([]);
     const [swapping, setSwapping] = useState([]);
     const [isSorting, setIsSorting] = useState(false);
+    
    
 
     const generateArray = () => {
@@ -65,13 +66,17 @@ export const SortingVisualizer = ({
                         Sort
                     </motion.button>
                     <input 
-                        type="range" 
-                        min="1" 
-                        max="100" 
+                        type="number" 
+                        className="outline-gray-500 text-gray-500"
+                        min="10" 
+                        max="120" 
                         value={sortingSpeed} 
-                        onChange={(e) => setSpeed(parseInt(e.target.value))}
+                        onChange={(e) => {
+                            setSpeed(e.target.value)
+                        }
+                    }   
                     />
-                    <p className="text-gray-900">{sortingSpeed}x</p>
+                    <span className="text-gray-900 pt-[10px]">ms delay</span>
                 </div>
             </div>
         </div>
