@@ -44,9 +44,13 @@ function App() {
     switch (selectedAlgorithm) {
       case "Bubble Sort":
         return (
-          <div className="w-screen h-screen">
-            <BubbleSortVisualisation />
-            <BubbleSortInformation />
+          <div className="w-screen h-screen p-4 ">
+            <div className='h-[60vh]'>
+              <BubbleSortVisualisation />
+            </div>
+            <div className='mt-4'>
+              <BubbleSortInformation />
+            </div>
           </div>
         );
       case "Merge Sort":
